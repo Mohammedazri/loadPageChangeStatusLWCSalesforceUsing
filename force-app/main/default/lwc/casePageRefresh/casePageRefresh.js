@@ -24,6 +24,8 @@ export default class CasePageRefresh extends LightningElement {
     // Wire adapter to fetch the Case record
     @wire(getRecord, { recordId: '$recordId', fields: [RELOAD_REQUIRED_FIELD] })
     caseRecord({ error, data }) {
+
+        alert('je data && !this.reloadTriggered'+(data && !this.reloadTriggered));
         if (data && !this.reloadTriggered) {
             alert('je suis dans la wire dans le case Reecord');
             console.log(`LWC: Fetching record for Case ${this.recordId}`);
